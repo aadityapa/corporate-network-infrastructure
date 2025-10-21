@@ -1,0 +1,32 @@
+flowchart LR
+  Internet1[Internet Line 1]
+  Internet2[Internet Line 2]
+  subgraph WAN
+    Internet1 & Internet2
+  end
+  WAN -->|WAN1| FW[SonicWALL TZ540 Firewall]
+  WAN -->|WAN2| FW
+
+  FW --- DMZ[HP Gen10 Server (DMZ Zone)]
+  FW --- Core[D-Link L3 Core Switch (Main Switch)]
+
+  Core --- SW2[Switch-2 VLAN10]
+  Core --- SW3[Switch-3 VLAN11]
+  Core --- SW4[Switch-4 VLAN12]
+  Core --- SW5[Switch-5 VLAN13]
+  Core --- SW6[Switch-6 VLAN14]
+  Core --- SW7[Switch-7 VLAN15]
+  Core --- SW8[Switch-8 VLAN16]
+  Core --- SW9[Switch-9 VLAN17]
+
+  SW2 --- H2[~44 Hosts]
+  SW3 --- H3[~44 Hosts]
+  SW4 --- H4[~44 Hosts]
+  SW5 --- H5[~44 Hosts]
+  SW6 --- H6[~44 Hosts]
+  SW7 --- H7[~44 Hosts]
+  SW8 --- H8[~44 Hosts]
+  SW9 --- H9[~44 Hosts]
+
+  classDef fw fill:#ffb6c1,stroke:#333,stroke-width:2px;
+  class FW fw;

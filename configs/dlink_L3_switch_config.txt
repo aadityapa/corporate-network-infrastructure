@@ -1,0 +1,18 @@
+# D-Link L3 Core Switch Configuration (Sample)
+create vlan 10 name VLAN10
+create vlan 11 name VLAN11
+create vlan 12 name VLAN12
+create vlan 13 name VLAN13
+create vlan 14 name VLAN14
+create vlan 15 name VLAN15
+create vlan 16 name VLAN16
+create vlan 17 name VLAN17
+
+config vlan 10 add tagged 1 untagged 2-10
+config vlan 11 add tagged 1 untagged 11-20
+# ...repeat for other VLANs...
+
+create agg 1
+config agg 1 add port 1,2
+enable stp
+config stp root primary
